@@ -61,7 +61,7 @@ def add_censor_bar(image, eyes_coordinates):
     return image
 
 
-def main(image_path):
+def main(image_path, output_path):
     # Read the input image using OpenCV
     cv_image = cv2.imread(image_path)
 
@@ -80,15 +80,16 @@ def main(image_path):
     censored_image = add_censor_bar(pil_image, eyes_coordinates)
 
     # Save the output image
-    censored_image.save("output.jpg")
-    print("Output image saved as output.jpg")
+    censored_image.save(output_path)
+    print(f"Output image saved as {output_path}")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python script.py image.jpg")
+    if len(sys.argv) != 3:
+        print("Usage: python script.py input.png output.png")
         sys.exit(1)
 
     image_path = sys.argv[1]
+    output_path = sys.argv[2]
     print(f"Processing image: {image_path}")
-    main(image_path)
+    main(image_path, output_path)
