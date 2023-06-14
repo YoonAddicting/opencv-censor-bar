@@ -55,7 +55,7 @@ def add_censor_bar(image, eyes_coordinates):
     censor_bar_bottom = max_y + bar_height // 2
 
     draw.rectangle([(censor_bar_left, censor_bar_top),
-                    (censor_bar_right, censor_bar_bottom)], fill="red")
+                    (censor_bar_right, censor_bar_bottom)], fill="black")
     print(f"Censor bar added at ({censor_bar_left},{censor_bar_top})")
 
     return image
