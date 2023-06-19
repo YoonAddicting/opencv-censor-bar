@@ -23,7 +23,7 @@ def detect_faces_and_eyes(image):
         # Adjust these parameters to improve eye detection
         scaleFactor = 1.1
         minNeighbors = 5
-        minSize = (30, 30)
+        minSize = (5, 5)
         maxSize = (60, 60)
         eyes = eye_cascade.detectMultiScale(
             roi_gray, scaleFactor, minNeighbors, 0, minSize, maxSize)
@@ -36,7 +36,7 @@ def detect_faces_and_eyes(image):
 
 def add_censor_bar(image, eyes_coordinates):
     draw = ImageDraw.Draw(image)
-    bar_height = 10
+    bar_height = 5
 
     # Get the minimum and maximum x, y coordinates for all detected eyes
     x_values = [x for x, y, w, h in eyes_coordinates]
